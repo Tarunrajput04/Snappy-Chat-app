@@ -5,8 +5,10 @@
   "main": "server.js",
   "scripts": {
     "build": "npx tsc",
-    "start": "node ./dist/server.js",
-    "vercel-build": "npm run build"
+    "start": "npx tsc && node ./dist/server.js",
+    "vercel-build": "npm run build",
+    "dev": "nodemon --exec ts-node src/server.ts",
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Tarun kumar",
   "license": "ISC",

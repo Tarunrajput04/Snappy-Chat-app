@@ -3,24 +3,28 @@ import dotenv from "dotenv";
 import cors from "cors";
 import connectDb from "./config/dbConfig";
 import shortUrl from "./routes/shortUrl";
+
+// Load environment variables
 dotenv.config();
+
+// Connect to MongoDB
 connectDb();
 
-
-const port = process.env.PORT || 5001;
-
+// Create Express app
 const app = express();
 
+// Middleware
 app.use(express.json());
-app.use(express.urlencoded({extended:true}));
-app.use(cors({
-    origin: "http://localhost:3000",
-    credentials:true,
-})
+app.use(express.urlencoded({ extended: true }));
+app.use(
+  cors({
+    origin: "https://snappy-chat-app-frontend.vercel.app/", // Change to your frontend's production URL when deploying
+    credentials: true,
+  })
 );
 
-app.use("/api/",shortUrl);
+// Routes
+app.use("/api/", shortUrl);
 
-app.listen(port,()=>{
-    console.log(`server started successfully on port: ${port}`);
-});
+// Export the app for Vercel's serverless environment
+export default app;
