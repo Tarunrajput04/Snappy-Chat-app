@@ -1,7 +1,7 @@
 import * as React from 'react';
-import Header from './componenets/Header/header';
-import Footer from './componenets/Footer/footer';
-import Container from './componenets/Container/Container';
+import Header from './componenets/Header/Header.tsx';
+import Footer from './componenets/Footer/Footer.tsx';
+import Container from './componenets/Container/Container.tsx';
 
 interface IAppProps {
 }
